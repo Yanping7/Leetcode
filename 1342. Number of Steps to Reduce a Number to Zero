@@ -1,0 +1,37 @@
+# my solution
+class Solution1:
+    def numberOfSteps(self, num: int) -> int:
+        step = 0
+        while num !=0:
+            #step +=1   a more elegant way
+            if num%2 == 0:
+                num = num/2
+                step += 1 #can be more elegant
+            else:
+                num -= 1
+                step += 1 # can be more elegant
+        return step
+
+# a shorter solution
+class Solution:
+    """
+    Time:   O(1)
+    Memory: O(1)
+    """
+
+    def numberOfSteps(self, num: int) -> int:
+        if num == 0:
+            return 0
+        return num.bit_length() - 1 + num.bit_count()
+
+# a solution I cannot understand rightnow
+class Solution:
+    """
+    Time:   O(log(n))
+    Memory: O(log(n))
+    """
+
+    def numberOfSteps(self, num: int) -> int:
+        if num == 0:
+            return 0
+        return 1 + self.numberOfSteps(num - 1 if num & 1 else num >> 1)
