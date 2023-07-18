@@ -1,3 +1,15 @@
-class Solution:
+# first solution
+class Solution1:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
         return max([sum(acc) for acc in accounts])
+
+# second solution
+class Solution2:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        maxWealthSoFar = 0 
+        for m in accounts:
+            currentMaximumWealth = 0
+            for n in m:
+                currentMaximumWealth += n
+            maxWealthSoFar = max(currentMaximumWealth, maxWealthSoFar)
+        return maxWealthSoFar
